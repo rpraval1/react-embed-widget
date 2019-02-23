@@ -1,0 +1,37 @@
+{
+  "name": "medal-widget-react",
+  "version": "1.0.0",
+  "description": "A React based embeddable widget",
+  "main": "src/index.js",
+  "scripts": {
+    "build:dev": "webpack --mode development --open",
+    "build:prod": "webpack --mode production"
+  },
+  "author": {
+    "name": "Pravallika Rikhala",
+    "email": "pravallika.rikhala@gmail.com",
+    "url": "https://github.com/rpraval1"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "file-loader": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.2.0"
+  },
+  "dependencies": {
+    "babel-plugin-module-resolver": "^3.2.0",
+    "react": "^16.5.2",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-dom": "^16.5.2",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.81.2"
+  }
+}
