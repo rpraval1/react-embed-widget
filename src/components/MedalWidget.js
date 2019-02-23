@@ -1,13 +1,17 @@
 import React from "react";
-import { Container, Header, Button } from 'semantic-ui-react'
+import { Container, Grid, Header } from 'semantic-ui-react'
 
 const MedalWidget = (props) => {
     return(
         <Container>
-            <Header as='h1' color='grey'>MEDAL COUNT</Header>
-            Sort type: {props.sort}
-            <Button primary>Primary</Button>
-            <Button secondary>Secondary</Button>
+            <Grid>
+                <Grid.Row>
+                    <Grid.Column>
+                        <Header as='h3' color='grey'>MEDAL COUNT</Header>
+                        Sort type: {props.sort}
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
         </Container>
     )
 }
