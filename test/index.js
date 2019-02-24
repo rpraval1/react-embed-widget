@@ -66,7 +66,7 @@ describe('config with invalid div', async function() {
 })
 
 
-describe('config with invalid medal', async function() {
+describe('config with invalid medal: will load gold as default', async function() {
     // Start the server
     before(async function() {
         // this.server = app.listen(8080);
