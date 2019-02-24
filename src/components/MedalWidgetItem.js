@@ -5,8 +5,8 @@ const MedalWidgetItem = (props) => {
     
     return(
         <Table.Row>
-            <Table.Cell>{props.countryMedalData.index}</Table.Cell>
-            <Table.Cell>
+            <Table.Cell className="index">{props.countryMedalData.index}</Table.Cell>
+            <Table.Cell className="country_flag">
                 <div className={`flags-${props.countryMedalData.code ? props.countryMedalData.code.toLowerCase() : 'aut'}`} ></div>
             </Table.Cell>
             <Table.Cell className="country">{props.countryMedalData.code}</Table.Cell>

@@ -22,10 +22,10 @@ div.column h3.medal_widget_header {
 
 .flags-aut, .flags-blr, .flags-can, .flags-chn, .flags-fra, .flags-ger, .flags-ita,
 .flags-ned, .flags-nor, .flags-rus, .flags-sui, .flags-swe, .flags-usa {
-    height: 17px!important;
     background-image: url('https://s3-us-west-2.amazonaws.com/reuters.medals-widget/flags.png')!important;
     background-repeat: no-repeat!important;
     width: 28px!important;
+    height: 17px!important;
     text-align: center;
 }
 
@@ -81,10 +81,25 @@ div.column h3.medal_widget_header {
     background-position: 0px -204px!important;
 }
 
+div.column td.index {
+    width: 9px;
+    padding: 0px;
+}
+
+div.column td.country_flag {
+    width: 45px;
+}
+
 div.column td.country {
     font-weight: 700;
 }
 
 div.column td.total {
     font-weight: 900;
+}
+
+div.column div.ui.label.total {
+    border: none;
+    font-size: 14px;
+    padding: 0px;
 }

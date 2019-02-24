@@ -16,6 +16,7 @@ import {
 } from '@helpers'
 
 import MedalWidgetItem from './MedalWidgetItem'
+import MedalWidgetHeader from './MedalWidgetHeader'
 
 class MedalWidget extends Component {
     constructor(props) {
@@ -25,7 +26,7 @@ class MedalWidget extends Component {
           data: null,
           fetchError: false,
           loading: true,
-          sortField: 'gold'
+          sortField: "gold"
         };
         this.handleMedalIconClick = this.handleMedalIconClick.bind(this)
 
@@ -58,6 +59,10 @@ class MedalWidget extends Component {
         let medalType = data["data-medal-type"]
         if (medalType) {
             let data = this.state.data.sort(sortMedalData(medalType, getTieBreakerField(medalType),'desc'));
+
+            // let sortField = this.state.sortField;
+            // sortField[medalType] = "selected"
+
             this.setState({
                 sortField: medalType,
                 data
@@ -109,22 +114,19 @@ class MedalWidget extends Component {
                                         <Table.HeaderCell></Table.HeaderCell>
                                         <Table.HeaderCell></Table.HeaderCell>
                                         <Table.HeaderCell></Table.HeaderCell>
-                                        <Table.HeaderCell className="selected">
-                                            <Label circular color='yellow' 
-                                                data-medal-type='gold'
-                                                onClick={this.handleMedalIconClick} />
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            <Label circular color='grey' 
-                                                data-medal-type='silver'
-                                                onClick={this.handleMedalIconClick} />
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            <Label circular color='brown' 
-                                                data-medal-type='bronze'
-                                                onClick={this.handleMedalIconClick} />
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>TOTAL</Table.HeaderCell>
+                                        <MedalWidgetHeader 
+                                            color='yellow' currentField='gold' 
+                                            handleClick={this.handleMedalIconClick} sortField={sortField} />
+                                        <MedalWidgetHeader 
+                                            color='grey' currentField='silver' 
+                                            handleClick={this.handleMedalIconClick} sortField={sortField} />
+                                        <MedalWidgetHeader 
+                                            color='brown' currentField='bronze' 
+                                            handleClick={this.handleMedalIconClick} sortField={sortField} />
+                                        <MedalWidgetHeader 
+                                            color='grey' currentField='total' 
+                                            handleClick={this.handleMedalIconClick} sortField={sortField} />
+
                                     </Table.Row>
                                 </Table.Header>
 
