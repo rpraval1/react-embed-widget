@@ -2,6 +2,7 @@
 * React Imports 
 */
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 /**
  * Semantic UI Imports
@@ -31,6 +32,7 @@ import {
 } from '@components'
 
 class MedalWidget extends Component {
+
     constructor(props) {
         super(props);
 
@@ -134,5 +136,8 @@ class MedalWidget extends Component {
     }
 }
 
+MedalWidget.PropTypes = {
+    sort: PropTypes.string
+}
 
 export default MedalWidget;

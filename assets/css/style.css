@@ -33,7 +33,7 @@ div.container.medal_widget tbody td div.flags-fra, div.container.medal_widget tb
 div.container.medal_widget tbody td div.flags-ita, div.container.medal_widget tbody td div.flags-ned, 
 div.container.medal_widget tbody td div.flags-nor, div.container.medal_widget tbody td div.flags-rus, 
 div.container.medal_widget tbody td div.flags-sui, div.container.medal_widget tbody td div.flags-swe, 
-div.container.medal_widget tbody td div.flags-usa {
+div.container.medal_widget tbody td div.flags-usa, div.container.medal_widget tbody td div.flags-none {
     background-image: url('https://s3-us-west-2.amazonaws.com/reuters.medals-widget/flags.png')!important;
     background-repeat: no-repeat!important;
     width: 28px!important;
@@ -90,6 +90,10 @@ div.container.medal_widget tbody td div.flags-swe {
 }
 
 div.container.medal_widget tbody td div.flags-usa {
+    background-position: 0px -204px!important;
+}
+
+div.container.medal_widget tbody td div.flags-none {
     background-position: 0px -204px!important;
 }
 

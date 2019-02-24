@@ -1,5 +1,6 @@
 import React from "react";
 import { Table } from 'semantic-ui-react'
+import PropTypes from 'prop-types';
 
 const MedalWidgetItem = (props) => {
     
@@ -8,7 +9,7 @@ const MedalWidgetItem = (props) => {
             <Table.Cell width={1} className="index">{props.countryMedalData.index}</Table.Cell>
             <Table.Cell width={2} className="country_flag">
                 <div 
-                    className={`flags-${props.countryMedalData.code ? props.countryMedalData.code.toLowerCase() : 'aut'}`} ></div>
+                    className={`flags-${props.countryMedalData.code ? props.countryMedalData.code.toLowerCase() : 'none'}`} ></div>
             </Table.Cell>
             <Table.Cell width={5} className="country">{props.countryMedalData.code}</Table.Cell>
             <Table.Cell width={1}>{props.countryMedalData.gold}</Table.Cell>
@@ -19,6 +20,9 @@ const MedalWidgetItem = (props) => {
     )
 }
 
+MedalWidgetItem.PropTypes = {
+    countryMedalData: PropTypes.object
+}
 
 
 export default MedalWidgetItem
