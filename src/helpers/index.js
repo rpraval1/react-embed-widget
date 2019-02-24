@@ -36,7 +36,7 @@ function getTieBreakerField (sortField) {
 }
 
 function getMedalType (type) {
-    let medalTypeObj = medalType.find(o => o.name === type);
+    let medalTypeObj = medalType.filter(o => o.name === type)[0];
     return medalTypeObj ? medalTypeObj.name : 'gold'
 }
 
