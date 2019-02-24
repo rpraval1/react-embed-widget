@@ -8,6 +8,14 @@ import React, { Component } from "react";
  */
 import { Container, Grid, Header, Image, Label, Table } from 'semantic-ui-react'
 
+import {
+    addTotalToData,
+    getTieBreakerField,
+    renderMedalDataRows,
+    sortMedalData
+} from '@helpers'
+
+import MedalWidgetItem from './MedalWidgetItem'
 
 class MedalWidget extends Component {
     constructor(props) {
@@ -16,8 +24,11 @@ class MedalWidget extends Component {
         this.state = {
           data: null,
           fetchError: false,
-          loading: true
+          loading: true,
+          sortField: 'gold'
         };
+        this.handleMedalIconClick = this.handleMedalIconClick.bind(this)
+
     }
 
     componentDidMount() {
@@ -26,6 +37,7 @@ class MedalWidget extends Component {
             return response.json()
         })
         .then( (data) => {
+            data = addTotalToData(data)
             this.setState({
                 data,
                 loading: false
@@ -40,9 +52,22 @@ class MedalWidget extends Component {
         })
     }
 
+    handleMedalIconClick(e, data) {
+        console.log("sort by: ")
+        console.log(data)
+        let medalType = data["data-medal-type"]
+        if (medalType) {
+            let data = this.state.data.sort(sortMedalData(medalType, getTieBreakerField(medalType),'desc'));
+            this.setState({
+                sortField: medalType,
+                data
+            })
+        }
+    }
+
     render() {
         const { sort } = this.props
-        const { data, fetchError, loading } = this.state
+        const { data, fetchError, loading, sortField } = this.state
 
         if (fetchError) return (
             <Container>
@@ -70,6 +95,7 @@ class MedalWidget extends Component {
         
 
         console.log(data);
+        console.log(sortField);
 
         return (
             <Container>
@@ -84,75 +110,26 @@ class MedalWidget extends Component {
                                         <Table.HeaderCell></Table.HeaderCell>
                                         <Table.HeaderCell></Table.HeaderCell>
                                         <Table.HeaderCell className="selected">
-                                            <Label circular color='yellow' />
+                                            <Label circular color='yellow' 
+                                                data-medal-type='gold'
+                                                onClick={this.handleMedalIconClick} />
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
-                                            <Label circular color='grey' />
+                                            <Label circular color='grey' 
+                                                data-medal-type='silver'
+                                                onClick={this.handleMedalIconClick} />
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
-                                            <Label circular color='brown' /> 
+                                            <Label circular color='brown' 
+                                                data-medal-type='bronze'
+                                                onClick={this.handleMedalIconClick} />
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>TOTAL</Table.HeaderCell>
                                     </Table.Row>
                                 </Table.Header>
 
                                 <Table.Body>
-                                    <Table.Row>
-                                        <Table.Cell>1</Table.Cell>
-                                        <Table.Cell>
-                                            <div className="flags-aut" ></div>
-                                        </Table.Cell>
-                                        <Table.Cell>RUS</Table.Cell>
-                                        <Table.Cell>13</Table.Cell>
-                                        <Table.Cell>11</Table.Cell>
-                                        <Table.Cell>9</Table.Cell>
-                                        <Table.Cell>33</Table.Cell>
-                                    </Table.Row>
-                                    <Table.Row>
-                                        <Table.Cell>1</Table.Cell>
-                                        <Table.Cell><div className="flags-blr" ></div></Table.Cell>
-                                        <Table.Cell>RUS</Table.Cell>
-                                        <Table.Cell>13</Table.Cell>
-                                        <Table.Cell>11</Table.Cell>
-                                        <Table.Cell>9</Table.Cell>
-                                        <Table.Cell>33</Table.Cell>
-                                    </Table.Row>
-                                    <Table.Row>
-                                        <Table.Cell>1</Table.Cell>
-                                        <Table.Cell><div className="flags-can" ></div></Table.Cell>
-                                        <Table.Cell>RUS</Table.Cell>
-                                        <Table.Cell>13</Table.Cell>
-                                        <Table.Cell>11</Table.Cell>
-                                        <Table.Cell>9</Table.Cell>
-                                        <Table.Cell>33</Table.Cell>
-                                    </Table.Row>
-                                    <Table.Row>
-                                        <Table.Cell>1</Table.Cell>
-                                        <Table.Cell><div className="flags-chn" ></div></Table.Cell>
-                                        <Table.Cell>RUS</Table.Cell>
-                                        <Table.Cell>13</Table.Cell>
-                                        <Table.Cell>11</Table.Cell>
-                                        <Table.Cell>9</Table.Cell>
-                                        <Table.Cell>33</Table.Cell>
-                                    </Table.Row>
-                                    <Table.Row>
-                                        <Table.Cell>1</Table.Cell>
-                                        <Table.Cell><div className="flags-fra" ></div></Table.Cell>
-                                        <Table.Cell>RUS</Table.Cell>
-                                        <Table.Cell>13</Table.Cell>
-                                        <Table.Cell>11</Table.Cell>
-                                        <Table.Cell>9</Table.Cell>
-                                        <Table.Cell>33</Table.Cell>
-                                    </Table.Row>
-                                    <Table.Row>
-                                        <Table.Cell>1</Table.Cell>
-                                        <Table.Cell><div className="flags-ger" ></div></Table.Cell>
-                                        <Table.Cell>RUS</Table.Cell>
-                                        <Table.Cell>13</Table.Cell>
-                                        <Table.Cell>11</Table.Cell>
-                                        <Table.Cell>9</Table.Cell>
-                                        <Table.Cell>33</Table.Cell>
-                                    </Table.Row>
+                                    {renderMedalDataRows(data, MedalWidgetItem)}
                                 </Table.Body>
                             </Table>
                         </Grid.Column>
