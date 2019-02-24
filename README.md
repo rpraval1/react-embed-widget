@@ -81,7 +81,7 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
     A secure webpack plugin that supports dotenv and other environment variables and only exposes what you choose and use.
 
 4. [fetch api](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-    The Fetch API provides an interface for fetching resources (instead of using AJAX)
+    The Fetch API provides an interface for making ajax call to fetch resources dynamically.
 
 5. [Polyfills fix](https://webpack.js.org/guides/shimming/#loading-polyfills)
     Fix for rendering in older browsers 
