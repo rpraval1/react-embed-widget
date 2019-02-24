@@ -7,7 +7,7 @@ module.exports = {
     libraryTarget: 'umd',
     path: path.resolve(__dirname, "dist"),
     filename: "medal-widget.js",
-    publicPath:path.resolve(__dirname, "public/assets")
+    publicPath: path.resolve(__dirname, "public/assets/")
   },
   module: {
     rules: [
@@ -23,14 +23,24 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg|png)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [{
-          loader: 'file-loader',
-          options: {
-              name: '[name].[ext]',
-              outputPath: "fonts"
-          }
-      }],
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]',
+                outputPath: "fonts"
+            }
+          }],
+      },
+      {
+        test: /\.(jpeg|jpg|png)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]',
+                outputPath: "images"
+            }
+          }],
       }
     ]
   },

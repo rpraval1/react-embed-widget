@@ -5,3 +5,85 @@
 .header {
     color: blue;
 }
+
+div.column h3.medal_widget_header {
+    padding-top: 12px;
+    font-weight: lighter;
+    font-size: 19px;
+    margin-bottom: -11px;
+}
+
+.medal_widget_table_header {
+    border-bottom: 2px solid #767676!important;
+}
+
+.medal_widget_table_header th{
+    padding-top: 7px!important;
+    padding-bottom: 3px!important;
+    border-bottom: 2px solid #767676!important;
+}
+
+.selected {
+    border-top: 2px solid #767676;
+}
+
+.flags-aut, .flags-blr, .flags-can, .flags-chn, .flags-fra, .flags-ger, .flags-ita,
+.flags-ned, .flags-nor, .flags-rus, .flags-sui, .flags-swe, .flags-usa {
+    height: 17px!important;
+    background-image: url('https://s3-us-west-2.amazonaws.com/reuters.medals-widget/flags.png')!important;
+    background-repeat: no-repeat!important;
+    width: 28px!important;
+    text-align: center;
+}
+
+.flags-aut {
+    background-position: 0px 0px!important;
+}
+
+.flags-blr {
+    background-position: 0px -17px!important;
+}
+
+.flags-can {
+    background-position: 0px -34px!important;
+}
+
+.flags-chn {
+    background-position: 0px -51px!important;
+}
+
+.flags-fra {
+    background-position: 0px -68px!important;
+}
+
+.flags-ger {
+    background-position: 0px -85px!important;
+}
+
+.flags-ita {
+    background-position: 0px -102px!important;
+}
+
+.flags-ned {
+    background-position: 0px -119px!important;
+}
+
+.flags-nor {
+    background-position: 0px -136px!important;
+}
+
+.flags-rus {
+    background-position: 0px -153px!important;
+}
+
+.flags-sui {
+    background-position: 0px -170px!important;
+}
+
+.flags-swe {
+    background-position: 0px -187px!important;
+}
+
+.flags-usa {
+    background-position: 0px -204px!important;
+}
