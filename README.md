@@ -19,7 +19,7 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
 
 ```
     <section id="medal-widget"></section>
-    <script type="text/javascript" src="../dist/medal-widget.min.js"></script>
+    <script type="text/javascript" src="../dist/medal-widget.js"></script>
     <script type="text/javascript">
         widget.initialize("medal-widget", "total")
     </script>
@@ -29,7 +29,7 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
 
 ```
     <section id="medal-widget"></section>
-    <script type="text/javascript" src="../dist/medal-widget.min.js"></script>
+    <script type="text/javascript" src="../dist/medal-widget.js"></script>
     <script type="text/javascript">
         widget.initialize("medal-widget")
     </script>
@@ -39,11 +39,35 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
 
 ```
     <section id="medal-widget-1"></section>
-    <script type="text/javascript" src="../dist/medal-widget.min.js"></script>
+    <script type="text/javascript" src="../dist/medal-widget.js"></script>
     <script type="text/javascript">
         widget.initialize("medal-widget")
     </script>
 ```
+
+4. ie_index.html: Example to test if widget is initialized with valid div element_id and a valid medal column field in IE 11.0
+
+```
+    <script>
+        var modernBrowser = (
+            'fetch' in window &&
+            'assign' in Object
+        );
+
+        if ( !modernBrowser ) {
+            var scriptElement = document.createElement('script');
+
+            scriptElement.async = false;
+            scriptElement.src = './../dist/polyfills.js';
+            document.head.appendChild(scriptElement);
+        }
+    </script>
+    <script type="text/javascript" src="./../dist/medal-widget.js"></script>
+    <script type="text/javascript">
+        widget.initialize("medal-widget", "total")
+    </script>
+```
+
 
 #### Libraries used
 
