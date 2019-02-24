@@ -8,7 +8,7 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
 
 - [Installation](#installation)
 - [Testing](#testing)
-- [Usage](#usage)
+- [Usage](#usage-under-examples)
 - [Libraries](#libraries)
 - [Browser Support](#browser-support)
 
@@ -111,4 +111,6 @@ Library used:
 2. Firefox | version: 64.0
 3. IE | version: 11.0
 4. Safari | version: 12.0.3
+
+[ ](https://camo.githubusercontent.com/4cc964a3424ab6d3d17f31446ee3ac2451a2b140/687474703a2f2f692e696d6775722e636f6d2f34624d6d4235782e706e67)
 
