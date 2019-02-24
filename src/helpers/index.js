@@ -4,7 +4,6 @@ const medalType = [
     {
         name : "gold",
         color : "yellow"
-
     },
     {
         name : "silver",
@@ -18,8 +17,6 @@ const medalType = [
         name : "total",
         color : "grey"
     }
-    
-
 ]
 
 function addTotalToData (medalData) {
@@ -36,6 +33,11 @@ function getTieBreakerField (sortField) {
         "bronze": "gold",
         "total": "gold"
     }[sortField]
+}
+
+function getMedalType (type) {
+    let medalTypeObj = medalType.find(o => o.name === type);
+    return medalTypeObj ? medalTypeObj.name : 'gold'
 }
 
 function renderMedalDataRows(medalData, Component, size) {
@@ -105,6 +107,7 @@ function sortMedalData (medalFieldName, tieBreakerFieldName, order='asc') {
 export {
     addTotalToData,
     getTieBreakerField,
+    getMedalType,
     renderMedalDataRows,
     renderMedalWidgetHeader,
     sortMedalData

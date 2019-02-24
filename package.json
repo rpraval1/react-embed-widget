@@ -12,6 +12,10 @@
     "email": "pravallika.rikhala@gmail.com",
     "url": "https://github.com/rpraval1"
   },
+  "keywords": [
+    "widget",
+    "reactjs"
+  ],
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",

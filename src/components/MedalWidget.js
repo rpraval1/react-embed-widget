@@ -14,6 +14,7 @@ import { Container, Grid, Header, Table } from 'semantic-ui-react'
 import {
     addTotalToData,
     getTieBreakerField,
+    getMedalType,
     renderMedalDataRows,
     renderMedalWidgetHeader,
     sortMedalData
@@ -37,7 +38,7 @@ class MedalWidget extends Component {
           data: null,
           fetchError: false,
           loading: true,
-          sortField: "gold"
+          sortField: null
         };
 
         this.handleMedalIconClick = this.handleMedalIconClick.bind(this)
@@ -47,15 +48,19 @@ class MedalWidget extends Component {
         if (this.props.debug) {
             console.log("DEBUG: Fetching Medal data from source ...")
         }
+        
+        let medalType = getMedalType(this.props.sort)
 
         fetch(process.env.MEDALDATA_API_URL)
         .then( (response) => {
             return response.json()
         })
         .then( (data) => {
-            data = addTotalToData(data)
+            data = addTotalToData(data).sort(sortMedalData(medalType, getTieBreakerField(medalType),'desc'))
+
             this.setState({
                 data,
+                sortField: medalType,
                 loading: false
             })
         })

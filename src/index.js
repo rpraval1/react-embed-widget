@@ -8,7 +8,7 @@ import './../assets/css/style.css'
 
 import MedalWidget from '@components/MedalWidget'
 
-export function initialize(element_id, sort, top = 10, debug = false) {
+export function initialize(element_id, sort = "gold", top = 10, debug = false) {
   console.log("Initializing Medal Widget for <div id=\"" + element_id + "\"> with Sort: " + sort);
   ReactDOM.render(
     <MedalWidget sort={sort} top={top} debug={debug}  />,
