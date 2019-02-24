@@ -1,4 +1,4 @@
-# A React based embeddable wigdet script
+# A React based embeddable widget script
 
 Widget Name: Medal Count Widget
 
