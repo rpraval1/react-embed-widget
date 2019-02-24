@@ -8,6 +8,9 @@ import React, { Component } from "react";
  */
 import { Container, Grid, Header, Table } from 'semantic-ui-react'
 
+/**
+ * Load all Helper methods
+ */
 import {
     addTotalToData,
     getTieBreakerField,
@@ -16,6 +19,9 @@ import {
     sortMedalData
 } from '@helpers'
 
+/**
+ * Load all React components
+ */
 import {
     MedalWidgetItem,
     MedalWidgetHeader,
@@ -26,20 +32,23 @@ import {
 class MedalWidget extends Component {
     constructor(props) {
         super(props);
-    
+
         this.state = {
           data: null,
           fetchError: false,
           loading: true,
           sortField: "gold"
         };
-        this.handleMedalIconClick = this.handleMedalIconClick.bind(this)
 
+        this.handleMedalIconClick = this.handleMedalIconClick.bind(this)
     }
 
     componentDidMount() {
-        console.log("Fetching Medal data from source ...")
-        fetch('https://s3-us-west-2ki.amazonaws.com/reuters.medals-widget/medals.json')
+        if (this.props.debug) {
+            console.log("DEBUG: Fetching Medal data from source ...")
+        }
+
+        fetch(process.env.MEDALDATA_API_URL)
         .then( (response) => {
             return response.json()
         })
@@ -51,7 +60,7 @@ class MedalWidget extends Component {
             })
         })
         .catch(err => {
-            // Error fetching data from mdeal source
+            // Error fetching data from medal source
             this.setState({
                 fetchError: true
             })
@@ -60,8 +69,11 @@ class MedalWidget extends Component {
     }
 
     handleMedalIconClick(e, data) {
-        console.log("sort by: ")
-        console.log(data)
+        if (this.props.debug) {
+            console.log("sorting by: ")
+            console.log(data)
+        }
+
         let medalType = data["data-medal-type"]
         if (medalType) {
             let data = this.state.data.sort(sortMedalData(medalType, getTieBreakerField(medalType),'desc'));
@@ -74,7 +86,7 @@ class MedalWidget extends Component {
     }
 
     render() {
-        const { sort, top } = this.props
+        const { sort, top, debug } = this.props
         const { data, fetchError, loading, sortField } = this.state
 
         if (fetchError) return (
@@ -84,9 +96,13 @@ class MedalWidget extends Component {
         if (loading) return (
             <MedalWidgetLoading />
         )
-
-        console.log(data);
-        console.log(sortField);
+        
+        if (debug) {
+            console.log("DEBUG MODE: ");
+            console.log(data);
+            console.log("DEBUG MODE: ");
+            console.log(sortField);
+        }
 
         return (
             <Container className="medal_widget">
@@ -99,10 +115,8 @@ class MedalWidget extends Component {
                                     <Table.Row className="header">
                                         <Table.HeaderCell colSpan={3}></Table.HeaderCell>
                                         {renderMedalWidgetHeader(MedalWidgetHeader, sortField, this.handleMedalIconClick)}
-
                                     </Table.Row>
                                 </Table.Header>
-
                                 <Table.Body>
                                     {renderMedalDataRows(data, MedalWidgetItem, top)}
                                 </Table.Body>
