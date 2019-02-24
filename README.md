@@ -6,11 +6,11 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
 
 ## Index:
 
-[Installation](#installation)
-[Testing](#testing)
-[Usage](#usage)
-[Libraries](#libraries)
-[Browser Support](#browser-support)
+- [Installation](#installation)
+- [Testing](#testing)
+- [Usage](#usage)
+- [Libraries](#libraries)
+- [Browser Support](#browser-support)
 
 
 ### Installation
