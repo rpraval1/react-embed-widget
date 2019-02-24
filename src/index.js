@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import 'semantic-ui-css/semantic.min.css'
 import './../assets/css/style.css'
 
-import MedalWidget from '@components/MedalWidget'
+import { MedalWidget } from '@components'
 
 export function initialize(element_id, sort = "gold", top = 10, debug = false) {
   
