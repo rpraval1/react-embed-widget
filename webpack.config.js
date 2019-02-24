@@ -1,13 +1,12 @@
 var path = require('path');
 const Dotenv = require('dotenv-webpack');
 
-module.exports = {
+var config = {
   entry: './src/index.js',
   output: {
     library: ["widget"],
     libraryTarget: 'umd',
     path: path.resolve(__dirname, "dist"),
-    filename: "medal-widget.js",
     publicPath: path.resolve(__dirname, "dist")
   },
   module: {
@@ -54,4 +53,18 @@ module.exports = {
       defaults: false // load '.env.defaults' as the default values if empty.
     })
   ]
+};
+
+
+module.exports = (env, argv) => {
+  // Env Specific webpack config  
+  if (argv.mode === 'development') {
+    config.output.filename = 'medal-widget.js'
+  }
+
+  if (argv.mode === 'production') {
+    config.output.filename = 'medal-widget.min.js'
+  }
+
+  return config;
 };
