@@ -83,6 +83,9 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
 4. [fetch api](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
     The Fetch API provides an interface for fetching resources (instead of using AJAX)
 
+5. [Polyfills fix](https://webpack.js.org/guides/shimming/#loading-polyfills)
+    Fix for rendering in older browsers 
+
 #### Browsers tested on
 
 1. Chrome | version: 72.0.3626.109
