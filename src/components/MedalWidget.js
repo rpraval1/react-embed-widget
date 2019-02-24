@@ -6,17 +6,22 @@ import React, { Component } from "react";
 /**
  * Semantic UI Imports
  */
-import { Container, Grid, Header, Image, Label, Table } from 'semantic-ui-react'
+import { Container, Grid, Header, Table } from 'semantic-ui-react'
 
 import {
     addTotalToData,
     getTieBreakerField,
     renderMedalDataRows,
+    renderMedalWidgetHeader,
     sortMedalData
 } from '@helpers'
 
-import MedalWidgetItem from './MedalWidgetItem'
-import MedalWidgetHeader from './MedalWidgetHeader'
+import {
+    MedalWidgetItem,
+    MedalWidgetHeader,
+    MedalWidgetError,
+    MedalWidgetLoading
+} from '@components'
 
 class MedalWidget extends Component {
     constructor(props) {
@@ -33,7 +38,8 @@ class MedalWidget extends Component {
     }
 
     componentDidMount() {
-        fetch('https://s3-us-west-2.amazonaws.com/reuters.medals-widget/medals.json')
+        console.log("Fetching Medal data from source ...")
+        fetch('https://s3-us-west-2ki.amazonaws.com/reuters.medals-widget/medals.json')
         .then( (response) => {
             return response.json()
         })
@@ -60,9 +66,6 @@ class MedalWidget extends Component {
         if (medalType) {
             let data = this.state.data.sort(sortMedalData(medalType, getTieBreakerField(medalType),'desc'));
 
-            // let sortField = this.state.sortField;
-            // sortField[medalType] = "selected"
-
             this.setState({
                 sortField: medalType,
                 data
@@ -71,67 +74,37 @@ class MedalWidget extends Component {
     }
 
     render() {
-        const { sort } = this.props
+        const { sort, top } = this.props
         const { data, fetchError, loading, sortField } = this.state
 
         if (fetchError) return (
-            <Container>
-                <Grid>
-                    <Grid.Row>
-                        <Grid.Column>
-                            Error fetching Medals data, please try again later!
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-            </Container>
+            <MedalWidgetError />
         )
 
         if (loading) return (
-            <Container>
-                <Grid>
-                    <Grid.Row>
-                        <Grid.Column>
-                            Loading Medal Data..... 
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-            </Container>
+            <MedalWidgetLoading />
         )
-        
 
         console.log(data);
         console.log(sortField);
 
         return (
-            <Container>
+            <Container className="medal_widget">
                 <Grid>
                     <Grid.Row>
                         <Grid.Column>
-                            <Header as='h3' color='grey' className="medal_widget_header">MEDAL COUNT</Header>
+                            <Header as='h3' color='grey' className="header">MEDAL COUNT</Header>
                             <Table basic='very' unstackable textAlign="center" compact>
                                 <Table.Header>
-                                    <Table.Row className="medal_widget_table_header">
-                                        <Table.HeaderCell></Table.HeaderCell>
-                                        <Table.HeaderCell></Table.HeaderCell>
-                                        <Table.HeaderCell></Table.HeaderCell>
-                                        <MedalWidgetHeader 
-                                            color='yellow' currentField='gold' 
-                                            handleClick={this.handleMedalIconClick} sortField={sortField} />
-                                        <MedalWidgetHeader 
-                                            color='grey' currentField='silver' 
-                                            handleClick={this.handleMedalIconClick} sortField={sortField} />
-                                        <MedalWidgetHeader 
-                                            color='brown' currentField='bronze' 
-                                            handleClick={this.handleMedalIconClick} sortField={sortField} />
-                                        <MedalWidgetHeader 
-                                            color='grey' currentField='total' 
-                                            handleClick={this.handleMedalIconClick} sortField={sortField} />
+                                    <Table.Row className="header">
+                                        <Table.HeaderCell colSpan={3}></Table.HeaderCell>
+                                        {renderMedalWidgetHeader(MedalWidgetHeader, sortField, this.handleMedalIconClick)}
 
                                     </Table.Row>
                                 </Table.Header>
 
                                 <Table.Body>
-                                    {renderMedalDataRows(data, MedalWidgetItem)}
+                                    {renderMedalDataRows(data, MedalWidgetItem, top)}
                                 </Table.Body>
                             </Table>
                         </Grid.Column>

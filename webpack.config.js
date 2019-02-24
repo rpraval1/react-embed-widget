@@ -7,7 +7,7 @@ module.exports = {
     libraryTarget: 'umd',
     path: path.resolve(__dirname, "dist"),
     filename: "medal-widget.js",
-    publicPath: path.resolve(__dirname, "public/assets/")
+    publicPath: path.resolve(__dirname, "dist")
   },
   module: {
     rules: [
@@ -28,7 +28,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
                 name: '[name].[ext]',
-                outputPath: "fonts"
+                outputPath: "/fonts"
             }
           }],
       },
@@ -38,7 +38,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
                 name: '[name].[ext]',
-                outputPath: "images"
+                outputPath: "/images"
             }
           }],
       }

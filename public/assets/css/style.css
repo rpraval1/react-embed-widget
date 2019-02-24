@@ -1,27 +1,39 @@
+div.container.medal_widget div.ui.segment.error {
+    margin-top: 25%;
+}
 
-div.column h3.medal_widget_header {
+div.container.medal_widget h3.header {
     padding-top: 12px;
     font-weight: lighter;
     font-size: 19px;
     margin-bottom: -11px;
 }
 
-.medal_widget_table_header {
+div.container.medal_widget tr.header {
     border-bottom: 2px solid #767676!important;
 }
 
-.medal_widget_table_header th{
+div.container.medal_widget tr.header th{
     padding-top: 7px!important;
     padding-bottom: 3px!important;
     border-bottom: 2px solid #767676!important;
 }
 
-.selected {
+div.container.medal_widget tr.header th div.label {
+    cursor: pointer;
+}
+
+div.container.medal_widget tr.header th.selected {
     border-top: 2px solid #767676;
 }
 
-.flags-aut, .flags-blr, .flags-can, .flags-chn, .flags-fra, .flags-ger, .flags-ita,
-.flags-ned, .flags-nor, .flags-rus, .flags-sui, .flags-swe, .flags-usa {
+div.container.medal_widget tbody td div.flags-aut, div.container.medal_widget tbody td div.flags-blr, 
+div.container.medal_widget tbody td div.flags-can, div.container.medal_widget tbody td div.flags-chn, 
+div.container.medal_widget tbody td div.flags-fra, div.container.medal_widget tbody td div.flags-ger, 
+div.container.medal_widget tbody td div.flags-ita, div.container.medal_widget tbody td div.flags-ned, 
+div.container.medal_widget tbody td div.flags-nor, div.container.medal_widget tbody td div.flags-rus, 
+div.container.medal_widget tbody td div.flags-sui, div.container.medal_widget tbody td div.flags-swe, 
+div.container.medal_widget tbody td div.flags-usa {
     background-image: url('https://s3-us-west-2.amazonaws.com/reuters.medals-widget/flags.png')!important;
     background-repeat: no-repeat!important;
     width: 28px!important;
@@ -29,76 +41,70 @@ div.column h3.medal_widget_header {
     text-align: center;
 }
 
-.flags-aut {
+div.container.medal_widget tbody td div.flags-aut {
     background-position: 0px 0px!important;
 }
 
-.flags-blr {
+div.container.medal_widget tbody td div.flags-blr {
     background-position: 0px -17px!important;
 }
 
-.flags-can {
+div.container.medal_widget tbody td div.flags-can {
     background-position: 0px -34px!important;
 }
 
-.flags-chn {
+div.container.medal_widget tbody td div.flags-chn {
     background-position: 0px -51px!important;
 }
 
-.flags-fra {
+div.container.medal_widget tbody td div.flags-fra {
     background-position: 0px -68px!important;
 }
 
-.flags-ger {
+div.container.medal_widget tbody td div.flags-ger {
     background-position: 0px -85px!important;
 }
 
-.flags-ita {
+div.container.medal_widget tbody td div.flags-ita {
     background-position: 0px -102px!important;
 }
 
-.flags-ned {
+div.container.medal_widget tbody td div.flags-ned {
     background-position: 0px -119px!important;
 }
 
-.flags-nor {
+div.container.medal_widget tbody td div.flags-nor {
     background-position: 0px -136px!important;
 }
 
-.flags-rus {
+div.container.medal_widget tbody td div.flags-rus {
     background-position: 0px -153px!important;
 }
 
-.flags-sui {
+div.container.medal_widget tbody td div.flags-sui {
     background-position: 0px -170px!important;
 }
 
-.flags-swe {
+div.container.medal_widget tbody td div.flags-swe {
     background-position: 0px -187px!important;
 }
 
-.flags-usa {
+div.container.medal_widget tbody td div.flags-usa {
     background-position: 0px -204px!important;
 }
 
-div.column td.index {
-    width: 9px;
-    padding: 0px;
+
+div.container.medal_widget div.column td.country {
+    font-weight: bold;
+    text-align: left;
+    color: grey;
 }
 
-div.column td.country_flag {
-    width: 45px;
-}
-
-div.column td.country {
-    font-weight: 700;
-}
-
-div.column td.total {
+div.container.medal_widget div.column td.total {
     font-weight: 900;
 }
 
-div.column div.ui.label.total {
+div.container.medal_widget div.column div.ui.label.total {
     border: none;
     font-size: 14px;
     padding: 0px;

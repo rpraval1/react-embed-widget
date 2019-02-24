@@ -1,7 +1,45 @@
 import React from "react";
 
-function renderMedalDataRows(medalData, Component) {
-    return medalData.map( (countryMedalData, index) => {
+const medalType = [
+    {
+        name : "gold",
+        color : "yellow"
+
+    },
+    {
+        name : "silver",
+        color : "grey"
+    },
+    {
+        name : "bronze",
+        color : "brown"
+    },
+    {
+        name : "total",
+        color : "grey"
+    }
+    
+
+]
+
+function addTotalToData (medalData) {
+    return medalData.map( (countryMedalData) => {
+        countryMedalData.total = countryMedalData.gold + countryMedalData.silver + countryMedalData.bronze
+        return countryMedalData
+    })
+}
+
+function getTieBreakerField (sortField) {
+    return {
+        "gold": "silver",
+        "silver": "gold",
+        "bronze": "gold",
+        "total": "gold"
+    }[sortField]
+}
+
+function renderMedalDataRows(medalData, Component, size) {
+    return medalData.slice(0, size).map( (countryMedalData, index) => {
         countryMedalData.index = index + 1
         return (
             <Component key={countryMedalData.index} countryMedalData={countryMedalData} />
@@ -9,10 +47,14 @@ function renderMedalDataRows(medalData, Component) {
     })
 }
 
-function addTotalToData (medalData) {
-    return medalData.map( (countryMedalData) => {
-        countryMedalData.total = countryMedalData.gold + countryMedalData.silver + countryMedalData.bronze
-        return countryMedalData
+function renderMedalWidgetHeader(Component, sortField, handleMedalIconClick) {
+    return medalType.map( (medalItem) => {
+        return (
+            <Component
+                key = {medalItem.name} 
+                color={medalItem.color} currentField={medalItem.name} 
+                handleClick={handleMedalIconClick} sortField={sortField} /> 
+        )
     })
 }
 
@@ -58,19 +100,12 @@ function sortMedalData (medalFieldName, tieBreakerFieldName, order='asc') {
     };
 }
 
-function getTieBreakerField (sortField) {
-    return {
-        "gold": "silver",
-        "silver": "gold",
-        "bronze": "gold",
-        "total": "gold"
-    }[sortField]
-}
 
 
 export {
     addTotalToData,
     getTieBreakerField,
     renderMedalDataRows,
+    renderMedalWidgetHeader,
     sortMedalData
 }
