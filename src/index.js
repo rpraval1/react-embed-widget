@@ -19,6 +19,7 @@ export function initialize(element_id, sort = "gold", top = 10, debug = false) {
     )
     console.log("Initializing Medal Widget for <div id=\"" + element_id + "\"> with Sort: " + sort + " complete.");
   } catch ( err ) {
+    alert("FAILED: Initializing Medal Widget for <div id=\"" + element_id + "\"> with Sort: " + sort + ".");
     console.log(err);
     console.log("FAILED: Initializing Medal Widget for <div id=\"" + element_id + "\"> with Sort: " + sort + ".");
   }

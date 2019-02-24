@@ -84,7 +84,7 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
     The Fetch API provides an interface for making ajax call to fetch resources dynamically.
 
 5. [Polyfills fix](https://webpack.js.org/guides/shimming/#loading-polyfills)
-    Fix for rendering in older browsers 
+    Fix for rendering es6 modules / features in older browsers
 
 #### Browsers tested on
 
@@ -92,3 +92,12 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
 2. Firefox | version: 64.0
 3. IE | version: 11.0
 4. Safari | version: 12.0.3
+
+#### Testing
+
+Run command: `npm run test`
+
+Library used:
+
+1. [Mocha](https://mochajs.org/)
+2. [Zombie headless browser](http://zombie.js.org/)
