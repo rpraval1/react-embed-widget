@@ -4,7 +4,16 @@ Widget Name: Medal Count Widget
 
 The widget is meant to be embedded on client’s websites during the Olympic games.
 
-## Instructions
+## Index:
+
+[Installation](#installation)
+[Testing](#testing)
+[Usage](#usage)
+[Libraries](#libraries)
+[Browser Support](#browser-support)
+
+
+### Installation
 
 1.  `git clone https://github.com/rpraval1/react-embed-widget.git`
 2.  `npm install`
@@ -13,7 +22,17 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
 4. `npm run build:prod`
     This will build the widget as "medal-widget.js" (minified) in /dist folder in "production" mode
 
-### Examples: (under examples/)
+
+### Testing
+
+Run command: `npm run test`
+
+Library used:
+
+1. [Mocha](https://mochajs.org/)
+2. [Zombie headless browser](http://zombie.js.org/)
+
+### Usage: (under /examples)
 
 1. index.html: Example to test if widget is initialized with valid div element_id and a valid medal column field
 
@@ -69,7 +88,7 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
 ```
 
 
-#### Libraries used
+### Libraries
 
 1. [React Semantic UI](https://react.semantic-ui.com/)
     One of the most commonly referrenced UI library kit with wrapper for React.
@@ -86,18 +105,10 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
 5. [Polyfills fix](https://webpack.js.org/guides/shimming/#loading-polyfills)
     Fix for rendering es6 modules / features in older browsers
 
-#### Browsers tested on
+### Browser Support
 
 1. Chrome | version: 72.0.3626.109
 2. Firefox | version: 64.0
 3. IE | version: 11.0
 4. Safari | version: 12.0.3
 
-#### Testing
-
-Run command: `npm run test`
-
-Library used:
-
-1. [Mocha](https://mochajs.org/)
-2. [Zombie headless browser](http://zombie.js.org/)
