@@ -1,6 +1,6 @@
 import React from "react";
 import { Table } from 'semantic-ui-react'
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 const MedalWidgetItem = (props) => {
     
@@ -20,8 +20,8 @@ const MedalWidgetItem = (props) => {
     )
 }
 
-MedalWidgetItem.PropTypes = {
-    countryMedalData: PropTypes.object
+MedalWidgetItem.propTypes = {
+    countryMedalData: propTypes.object
 }
 
 

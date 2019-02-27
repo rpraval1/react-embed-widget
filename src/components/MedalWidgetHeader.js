@@ -1,6 +1,6 @@
 import React from "react";
 import { Label, Table } from 'semantic-ui-react'
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 const MedalWidgetHeader = (props) => {
     return(
@@ -20,11 +20,10 @@ const MedalWidgetHeader = (props) => {
     )
 }
 
-MedalWidgetHeader.PropTypes = {
-    sortField: PropTypes.string,
-    currentField: PropTypes.string,
-    handleClick: PropTypes.func,
-    handleClick: PropTypes.string
+MedalWidgetHeader.propTypes = {
+    sortField: propTypes.string,
+    currentField: propTypes.string,
+    handleClick: propTypes.func,
 }
 
 
