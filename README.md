@@ -26,11 +26,23 @@ The widget is meant to be embedded on client’s websites during the Olympic gam
 ### Testing
 
 Run command: `npm run test`
+Run command: `npm run test:all` (will test headless in chrome, firefox and will open browsers - safari and opera)
+
+Running on individual browsers: (For running IE please make sure you run on Windows OS)
+
+```
+    npm run test:chrome
+    npm run test:firefox
+    npm run test:safari
+    npm run test:opera
+    npm run test:ie
+```
+
+Dependencies: A test server is used to simulate the page visits and below framework reads the DOM and makes all assertions.
 
 Library used:
 
-1. [Mocha](https://mochajs.org/)
-2. [Zombie headless browser](http://zombie.js.org/)
+1. [testcafe](https://devexpress.github.io/testcafe/documentation/getting-started/)
 
 ### Usage: (under /examples)
 

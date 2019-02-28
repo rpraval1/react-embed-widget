@@ -7,11 +7,12 @@
     "build:dev": "webpack --mode development --open",
     "build:prod": "webpack --mode production",
     "test": "npm run test:chrome",
+    "test:ie": "testcafe chrome:headless tests/ie_test.js",
     "test:all": "npm run test:chrome && npm run test:firefox && npm run test:safari && npm run test:opera",
-    "test:chrome": "testcafe chrome:headless tests/",
-    "test:firefox": "testcafe firefox:headless tests/",
-    "test:safari": "testcafe safari:headless tests/",
-    "test:opera": "testcafe opera:headless tests/"
+    "test:chrome": "testcafe chrome:headless tests/index.js",
+    "test:firefox": "testcafe firefox:headless tests/index.js",
+    "test:safari": "testcafe safari:headless tests/index.js",
+    "test:opera": "testcafe opera:headless tests/index.js"
   },
   "author": {
     "name": "Pravallika Rikhala",
