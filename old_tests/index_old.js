@@ -1,6 +1,6 @@
 process.env.NODE_ENV = 'test';
 
-var app = require('./test_server');
+var app = require('../tests/test_server');
 
 // use zombie.js as headless browser
 var Browser = require('zombie');
